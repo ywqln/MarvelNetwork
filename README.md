@@ -3,13 +3,13 @@ marvel network demo
 
 ## 认识 marvel network
 项目中难免会有多方接口，意味着多个baseUrl，多个Header，多种数据结构。
-而我们在使用过程中一个retrofit，方便的切换baseUrl，Header就会感觉不太舒服了，
+而我们在使用过程中一个retrofit，切换baseUrl，Header如果处理不太好会很难受。<br/>
 marvel network使用注解的方式来描述接口声明的interface文件，统一来管理一个interface
-下的所有接口都使用同一个baseUrl，同一个Header。
+下的所有接口都使用同一个baseUrl，同一个Header。<br/>
 在项目中，baseUrl也可能是从一个接口中获取到的，注解上要求字符串的值是常量，这种情况下，
-marvel network提供了动态的baseUrl设置，设置方式：
-`@BaseUrl(dynamic = NewsBaseUrlInterceptor.class)`
-NewsBaseUrlInterceptor必须是一个实现BaseUrlInterceptor接口的类，并实现`void getBaseUrl()`方法
+marvel network提供了动态的baseUrl设置，设置方式：<br/>
+`@BaseUrl(dynamic = NewsBaseUrlInterceptor.class)`<br/>
+`NewsBaseUrlInterceptor`必须是一个实现BaseUrlInterceptor接口的类，并实现`void getBaseUrl()`方法
 
 ## 如何使用
 
