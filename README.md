@@ -115,22 +115,22 @@ Requestor.instance()
                 .subscribe(new ResponseObserver<NewsResult>() {
                     @Override
                     protected void onSuccess(NewsResult result) {
-                        WLog.json(new Gson().toJson(result.getData()));
+                        NetLog.json(new Gson().toJson(result.getData()));
                     }
 
                     @Override
                     protected void onFail(ResponseException responseException) {
-                        WLog.e(responseException.message);
+                        NetLog.e(responseException.message);
                     }
 
                     @Override
                     public void onSubscribe(Disposable d) {
-                        WLog.p("开始发送请求...");
+                        NetLog.p("开始发送请求...");
                     }
 
                     @Override
                     public void onComplete() {
-                        WLog.p("请求处理完成...");
+                        NetLog.p("请求处理完成...");
                     }
                 });
 ```

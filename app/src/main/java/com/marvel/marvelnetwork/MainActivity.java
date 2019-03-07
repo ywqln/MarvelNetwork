@@ -10,7 +10,7 @@ import com.marvel.network.exception.ResponseException;
 import com.marvel.network.observer.ResponseObserver;
 import com.marvel.network.observer.SimpleObserver;
 import com.marvel.network.tranformer.ApiThreadTransformer;
-import com.marvel.network.util.WLog;
+import com.marvel.network.util.NetLog;
 
 import io.reactivex.disposables.Disposable;
 
@@ -34,22 +34,22 @@ public class MainActivity extends AppCompatActivity {
                 .subscribe(new ResponseObserver<NewsResult>() {
                     @Override
                     protected void onSuccess(NewsResult result) {
-                        WLog.json(new Gson().toJson(result.getData()));
+                        NetLog.json(new Gson().toJson(result.getData()));
                     }
 
                     @Override
                     protected void onFail(ResponseException responseException) {
-                        WLog.e(responseException.message);
+                        NetLog.e(responseException.message);
                     }
 
                     @Override
                     public void onSubscribe(Disposable d) {
-                        WLog.p("开始发送请求...");
+                        NetLog.p("开始发送请求...");
                     }
 
                     @Override
                     public void onComplete() {
-                        WLog.p("请求处理完成...");
+                        NetLog.p("请求处理完成...");
                     }
                 });
     }
@@ -63,12 +63,12 @@ public class MainActivity extends AppCompatActivity {
                 .subscribe(new SimpleObserver<NewsResult>() {
                     @Override
                     protected void onSuccess(NewsResult result) {
-                        WLog.json(new Gson().toJson(result.getData()));
+                        NetLog.json(new Gson().toJson(result.getData()));
                     }
 
                     @Override
                     protected void onFail(ResponseException responseException) {
-                        WLog.e(responseException.message);
+                        NetLog.e(responseException.message);
                     }
                 });
     }
